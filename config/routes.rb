@@ -7,6 +7,8 @@ Pinteresting::Application.routes.draw do
   get "about" => "pages#about"
   get "team" => "pages#team"
   get "crm" => "pins#crm"
+  get "q2" => "pins#q2"
+  get "q3" => "pins#q3"
   get "pages/new_release" => 'pages#new_release', :as => :new_release
 
   # The priority is based upon order of creation: first created -> highest priority.
