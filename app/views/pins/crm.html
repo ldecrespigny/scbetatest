@@ -1,3 +1,5 @@
+
+
 <div class="col-lg-8 col-lg-offset-2"> 
   <div class="jumbotron">
     <h2>How many employees in your company?</h2>
@@ -35,7 +37,12 @@
   </div>
 </div>
 
-
+<% if current_user.admin? %>
+  <%= link_to edit_pin_path(@pin) do %>
+  <span class="glyphicon glyphicon-edit"></span>
+  Edit
+<% end %>
+   <% end %>  
 
 <!--
 

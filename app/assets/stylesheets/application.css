@@ -12,3 +12,7 @@
  *= require 'masonry/transitions'
  *= require_tree .
  */
+
+body {
+background-image: url(/assets/bg.jpg);
+}
