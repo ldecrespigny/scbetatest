@@ -1,0 +1,36 @@
+<%= link_to 'Back', pins_path %>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      
+      <div class="panel-heading center">
+        <%= image_tag @pin.image.url(:medium) %>
+      </div>
+
+
+      
+      
+        <div class="panel-title center">
+
+          <p><strong><h3><%= @pin.description %></h3></strong></p>
+
+        </div>
+
+        <div class="panel-body">
+          <p><strong><%= @pin.user.name if @pin.user %></strong></p>
+
+          <% if current_user.admin? %>
+          <%= link_to edit_pin_path(@pin) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+          Edit
+        	<% end %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<%= render 'hidden' unless user_signed_in? %>
+<%= render 'revealed' if user_signed_in? %>
