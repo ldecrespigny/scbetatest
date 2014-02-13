@@ -11,14 +11,14 @@ class PinsController < ApplicationController
 
   def crm
     @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
+
   end
 
   def show
   end
 
   def new
-    @pin = current_user.pins.build
-    
+    @pin = current_user.pins.build 
 
   end
 
@@ -38,6 +38,7 @@ class PinsController < ApplicationController
         format.json { render json: @pin.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   def update
@@ -77,3 +78,4 @@ class PinsController < ApplicationController
       params.require(:pin).permit(:description, :image, :pricing, :user_review_summary, :blurimage)
     end
 end
+

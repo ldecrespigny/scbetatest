@@ -3,10 +3,13 @@ class PagesController < ApplicationController
   end
 
   def about
+    
   end
 
   def team
   end
+
+
 
   def new_release
     respond_to do |format|
@@ -17,3 +20,8 @@ class PagesController < ApplicationController
 
 
 end
+
+
+
+
+
