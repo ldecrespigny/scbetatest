@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213222639) do
+ActiveRecord::Schema.define(version: 20140214000619) do
 
 # Could not dump table "contactdets" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 20140213222639) do
     t.string   "email"
     t.string   "employees"
     t.string   "function"
+    t.string   "employees2"
+    t.string   "employees3"
+    t.string   "name"
   end
 
   create_table "pins", force: true do |t|

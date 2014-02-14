@@ -11,27 +11,74 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :cell %><br>
-    <%= f.text_field :cell %>
+<div class="col-lg-8 col-lg-offset-2"> 
+  <div class="jumbotron">
+    <h2>How many employees in your company?</h2>
+
+
+    <div class="checkbox">
+      <%= check_box(:customer, :employees,{},"<10","not checked") %>
+      <h3><%= label_tag("Less than 10") %></h3>
+   
+    </div>
+
+    <div class="checkbox">
+      <%= check_box(:customer, :employees2,{},"10-30","not checked") %>
+      <h3><%= label_tag("10-30") %></h3>
+   
+    </div>
+
+    <div class="checkbox">
+      <%= check_box(:customer, :employees3,{},"30+","not checked") %>
+      <h3><%= label_tag("30+") %></h3>
+   
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :function %><br>
+      <%= f.text_field :function, class: "form-control", placeholder: "Industry" %>
+    </div>
+   
+
   </div>
 
-<div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
+</div>
 
-<div class="field">
-    <%= f.label :employees %><br>
-    <%= f.text_field :employees %>
-  </div>
 
-<div class="field">
-    <%= f.label :function %><br>
-    <%= f.text_field :function %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit %>
+<div class="col-lg-8 col-lg-offset-2">
+  <div class="jumbotron">
+    
+
+    <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: "form-control", placeholder: "name" %>
+      
+    </div>
+
+    <div class="form-group">
+        <%= f.label :cell %><br>
+        <%= f.text_field :cell, class: "form-control", placeholder: "Cel" %>
+      
+    </div>
+
+
+    <div class="form-group">
+        <%= f.label :email %><br>
+        <%= f.text_field :email, class: "form-control", placeholder: "email" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Get Free quotes", class: "btn btn-primary btn-lg" %>
+    </div>
   </div>
+</div>
+
+
+
+
+
+
 <% end %>
+
