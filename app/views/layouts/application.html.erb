@@ -6,13 +6,15 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
 </head>
 <body>
 
 
-<%= render 'layouts/header' %>	
-
-
+	<%= render 'layouts/header' %>	
 
 	
 	<div class="container">
@@ -21,9 +23,10 @@
 		<% end %>
 		<%= yield %>
 	</div>
-	
-
-
+		
+	<footer>	
+	<%= render 'layouts/footer' %>
+	</footer>
 
 </body>
 </html>
