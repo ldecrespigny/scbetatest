@@ -15,6 +15,9 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
+    session[:customer_params] ||= {}
+    @customer = Customer.new(session[:customer_params])
+    @customer.current_step = session[:customer_step]
   end
 
   # GET /customers/1/edit
@@ -24,35 +27,27 @@ class CustomersController < ApplicationController
   # POST /customers
   # POST /customers.json
   def create
-    @customer = Customer.new(customer_params)
-
-    respond_to do |format|
-      if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @customer }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
-      end
+    session[:customer_params].deep_merge!(params[:customer]) if params[:customer]
+    @customer = Customer.new(session[:customer_params])
+    @customer.current_step = session[:customer_step]
+    
+    if params[:back_button]
+      @customer.previous_step
+    elsif @customer.last_step?
+      @customer.save
+    else
+      @customer.next_step
+    end
+    session[:customer_step] = @customer.current_step
+    if @customer.new_record?
+      render "new"
+    else
+      session[:customer_step] = session[:customer_params] = nil
+      redirect_to @customer
     end
   end
 
-  # PATCH/PUT /customers/1
-  # PATCH/PUT /customers/1.json
-  def update
-    respond_to do |format|
-      if @customer.update(customer_params)
-        format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
-  # DELETE /customers/1
-  # DELETE /customers/1.json
   def destroy
     @customer.destroy
     respond_to do |format|

@@ -1,0 +1,32 @@
+<div class="col-lg-8 col-lg-offset-2">
+  <div class="jumbotron">
+
+
+
+<%= form_for(@customer) do |f| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+      <% @customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<%= render "#{@customer.current_step}_step", :f => f %>
+
+  <p><%= f.submit "Continue", class: "btn btn-primary btn-lg "%>
+
+  <%= f.submit "Back", :name => "back_button", class: "btn btn-primary btn-lg center" unless @customer.first_step? %></p>
+
+
+
+
+<% end %>
+
+</div>
+</div>

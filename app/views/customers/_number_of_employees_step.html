@@ -1,0 +1,28 @@
+
+    <h2>How many employees in your company?</h2>
+
+
+    <div class="checkbox">
+      <%= check_box(:customer, :employees,{},"<10","not checked") %>
+      <h3><%= label_tag("Less than 10") %></h3>
+   
+    </div>
+
+    <div class="checkbox">
+      <%= check_box(:customer, :employees2,{},"10-30","not checked") %>
+      <h3><%= label_tag("10-30") %></h3>
+   
+    </div>
+
+    <div class="checkbox">
+      <%= check_box(:customer, :employees3,{},"30+","not checked") %>
+      <h3><%= label_tag("30+") %></h3>
+   
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :function %><br>
+      <%= f.text_field :function, class: "form-control", placeholder: "Industry" %>
+    </div>
+
