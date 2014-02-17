@@ -1,10 +1,10 @@
 
-    <h2>How many employees in your company?</h2>
+    <h2>Quantos funcionários na sua empresa?</h2>
 
 
     <div class="checkbox">
       <%= check_box(:customer, :employees,{},"<10","not checked") %>
-      <h3><%= label_tag("Less than 10") %></h3>
+      <h3><%= label_tag("<10") %></h3>
    
     </div>
 
@@ -20,9 +20,10 @@
    
     </div>
 
+<br>
 
     <div class="form-group">
-      <%= f.label :function %><br>
+      <h2> Sua empresa atua na qual indústria?</h2>
       <%= f.text_field :function, class: "form-control", placeholder: "Industry" %>
     </div>
 

@@ -11,20 +11,25 @@
   </thead>
 
   <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.name %></td>
-        <td><%= customer.cell %></td>
-        <td><%= customer.email %></td>
-        <td><%= customer.employees %></td>
-        <td><%= customer.employees2 %></td>
-        <td><%= customer.employees3 %></td>
-        <td><%= customer.function %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+
+
+  <% if current_user.try(:admin?) %>
+
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.name %></td>
+          <td><%= customer.cell %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.employees %></td>
+          <td><%= customer.employees2 %></td>
+          <td><%= customer.employees3 %></td>
+          <td><%= customer.function %></td>
+          <td><%= link_to 'Show', customer %></td>
+          <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+          <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  <% end %>
   </tbody>
 </table>
 
