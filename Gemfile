@@ -17,6 +17,9 @@ gem 'aws-sdk', '~> 1.24.0'
 gem 'masonry-rails', '~>0.2.0'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
+gem 'nokogiri', '~> 1.5.3'
+gem 'feedjira'
+gem 'curb', '~> 0.8.4'
 
 
 
